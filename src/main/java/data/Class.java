@@ -1,5 +1,7 @@
 package data;
 
+import java.util.List;
+
 /**
  * Project name(项目名称)：MyBatis一对一关联查询
  * Package(包名): data
@@ -13,6 +15,7 @@ package data;
  * Description(描述)： 无
  */
 
+
 public class Class
 {
     //班级编号
@@ -25,6 +28,8 @@ public class Class
     private String class_major;
     //入学年份
     private Integer class_enrollment_year;
+    //学生列表
+    private List<Student> studentList;
 
     /**
      * 无参构造
@@ -41,23 +46,18 @@ public class Class
      * @param class_college         所属学院
      * @param class_major           所属专业
      * @param class_enrollment_year 入学年份
+     * @param studentList           the student list
      */
-    public Class(Long class_no, String class_name, String class_college, String class_major, Integer class_enrollment_year)
+    public Class(Long class_no, String class_name, String class_college, String class_major,
+                 Integer class_enrollment_year, List<Student> studentList)
     {
         this.class_no = class_no;
         this.class_name = class_name;
         this.class_college = class_college;
         this.class_major = class_major;
-        if (class_enrollment_year >= 0)
-        {
-            this.class_enrollment_year = class_enrollment_year;
-        }
-        else
-        {
-            this.class_enrollment_year = 0;
-        }
+        this.class_enrollment_year = class_enrollment_year;
+        this.studentList = studentList;
     }
-
     //对应的getter方法和setter方法
 
 
@@ -169,6 +169,26 @@ public class Class
     }
 
     /**
+     * Gets student list.
+     *
+     * @return the student list
+     */
+    public List<Student> getStudentList()
+    {
+        return studentList;
+    }
+
+    /**
+     * Sets student list.
+     *
+     * @param studentList the student list
+     */
+    public void setStudentList(List<Student> studentList)
+    {
+        this.studentList = studentList;
+    }
+
+    /**
      * toString方法
      *
      * @return 字符串
@@ -178,11 +198,12 @@ public class Class
     public String toString()
     {
         final StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append("class_no：").append(class_no).append('\t');
-        stringbuilder.append("class_name：").append(class_name).append('\t');
-        stringbuilder.append("class_college：").append(class_college).append('\t');
-        stringbuilder.append("class_major：").append(class_major).append('\t');
+        stringbuilder.append("class_no：").append(class_no).append('\n');
+        stringbuilder.append("class_name：").append(class_name).append('\n');
+        stringbuilder.append("class_college：").append(class_college).append('\n');
+        stringbuilder.append("class_major：").append(class_major).append('\n');
         stringbuilder.append("class_enrollment_year：").append(class_enrollment_year).append('\n');
+        stringbuilder.append("studentList：").append(studentList).append('\n');
         return stringbuilder.toString();
     }
 }
