@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 /**
  * Project name(项目名称)：MyBatis一对多关联查询
  * Package(包名): mapper
@@ -96,6 +97,11 @@ class StudentMapperTest
         sqlSession.close();
     }
 
+    /**
+     * Gets student information by class no.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void getStudentInformationByClassNo() throws IOException
     {
