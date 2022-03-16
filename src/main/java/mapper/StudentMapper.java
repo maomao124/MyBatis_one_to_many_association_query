@@ -17,6 +17,8 @@ import java.util.List;
  * Version(版本): 1.0
  * Description(描述)： 无
  */
+
+
 public interface StudentMapper
 {
     /**
@@ -46,5 +48,11 @@ public interface StudentMapper
      */
     public data.Student getStudentInformation2(@Param("student_no") Long student_no);
 
+    /**
+     * Gets student information by class no.
+     *
+     * @param class_no the class no
+     * @return the student information by class no
+     */
     public List<data.Student> getStudentInformationByClassNo(@Param("class_no") Long class_no);
 }

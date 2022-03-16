@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -91,6 +92,27 @@ class StudentMapperTest
         StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
         Student student = studentMapper.getStudentInformation2(202012340101L);
         System.out.println(student);
+
+        sqlSession.close();
+    }
+
+    @Test
+    void getStudentInformationByClassNo() throws IOException
+    {
+        //读取配置文件mybatis-config.xml
+        InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
+        //根据配置文件构建SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config);
+        //通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+        List<Student> list = studentMapper.getStudentInformationByClassNo(1001L);
+        for (Student student : list)
+        {
+            System.out.println(student);
+            System.out.println();
+        }
 
         sqlSession.close();
     }
