@@ -61,4 +61,19 @@ class ClassMapperTest
         System.out.println(aClass);
         sqlSession.close();
     }
+
+    @Test
+    void getClass2() throws IOException
+    {
+        //读取配置文件mybatis-config.xml
+        InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
+        //根据配置文件构建SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config);
+        //通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ClassMapper classMapper = sqlSession.getMapper(ClassMapper.class);
+        Class aClass = classMapper.getClass2(1001L);
+        System.out.println(aClass);
+        sqlSession.close();
+    }
 }

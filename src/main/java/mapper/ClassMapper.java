@@ -37,4 +37,14 @@ public interface ClassMapper
      * @return the class 1
      */
     public data.Class getClass1(@Param("class_no") Long class_no);
+
+    /**
+     * Gets class 2.
+     * 获得班级信息，包括班级学生
+     * 单步查询
+     *
+     * @param class_no the class no
+     * @return the class 2
+     */
+    public data.Class getClass2(@Param("class_no") Long class_no);
 }
