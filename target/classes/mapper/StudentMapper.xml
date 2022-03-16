@@ -60,4 +60,11 @@
         where student.class_no = class.class_no
           and student.student_no = #{student_no}
     </select>
+
+
+    <select id="getStudentInformation2" resultType="data.Student">
+        select *
+        from student
+        where student_no = #{student_no}
+    </select>
 </mapper>

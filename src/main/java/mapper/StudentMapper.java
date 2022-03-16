@@ -15,8 +15,6 @@ import org.apache.ibatis.annotations.Param;
  * Version(版本): 1.0
  * Description(描述)： 无
  */
-
-
 public interface StudentMapper
 {
     /**
@@ -36,4 +34,13 @@ public interface StudentMapper
      * @return the student information 1
      */
     public data.Student getStudentInformation1(@Param("student_no") Long student_no);
+
+    /**
+     * Gets student information 2.
+     * 班级信息为空
+     *
+     * @param student_no the student no
+     * @return the student information 2
+     */
+    public data.Student getStudentInformation2(@Param("student_no") Long student_no);
 }

@@ -7,4 +7,9 @@
         from class
         where class_no = #{class_no}
     </select>
+
+
+    <select id="getClass1" resultType="data.Class">
+
+    </select>
 </mapper>

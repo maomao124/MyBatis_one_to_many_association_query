@@ -25,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Description(描述)： 测试类
  */
 
+
 class StudentMapperTest
 {
 
@@ -67,6 +68,28 @@ class StudentMapperTest
 
         StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
         Student student = studentMapper.getStudentInformation1(202012340101L);
+        System.out.println(student);
+
+        sqlSession.close();
+    }
+
+    /**
+     * Gets student information 2.
+     *
+     * @throws IOException the io exception
+     */
+    @Test
+    void getStudentInformation2() throws IOException
+    {
+        //读取配置文件mybatis-config.xml
+        InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
+        //根据配置文件构建SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config);
+        //通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+        Student student = studentMapper.getStudentInformation2(202012340101L);
         System.out.println(student);
 
         sqlSession.close();

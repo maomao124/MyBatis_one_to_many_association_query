@@ -2,6 +2,7 @@ package mapper;
 
 import org.apache.ibatis.annotations.Param;
 
+
 /**
  * Project name(项目名称)：MyBatis一对一关联查询
  * Package(包名): mapper
@@ -26,4 +27,14 @@ public interface ClassMapper
      * @return the class
      */
     public data.Class getClass(@Param("class_no") Long class_no);
+
+    /**
+     * Gets class 1.
+     * 获得班级信息，包括班级学生
+     * 多步查询
+     *
+     * @param class_no the class no
+     * @return the class 1
+     */
+    public data.Class getClass1(@Param("class_no") Long class_no);
 }
