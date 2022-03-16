@@ -9,7 +9,20 @@
     </select>
 
 
-    <select id="getClass1" resultType="data.Class">
+    <resultMap id="getClass1" type="class">
+        <id property="class_no" column="class_no"/>
+        <result property="class_name" column="class_name"/>
+        <result property="class_major" column="class_major"/>
+        <result property="class_enrollment_year" column="class_enrollment_year"/>
+        <result property="class_college" column="class_college"/>
+        <collection property="studentList">
 
+        </collection>
+    </resultMap>
+
+    <select id="getClass1" resultMap="getClass1">
+        select *
+        from class
+        where class_no = #{class_no}
     </select>
 </mapper>

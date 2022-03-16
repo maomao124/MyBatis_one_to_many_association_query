@@ -67,4 +67,11 @@
         from student
         where student_no = #{student_no}
     </select>
+
+
+    <select id="getStudentInformationByClassNo" resultType="data.Student">
+        select *
+        from student
+        where class_no = #{class_no}
+    </select>
 </mapper>

@@ -2,6 +2,8 @@ package mapper;
 
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 
 /**
  * Project name(项目名称)：MyBatis一对一关联查询
@@ -43,4 +45,6 @@ public interface StudentMapper
      * @return the student information 2
      */
     public data.Student getStudentInformation2(@Param("student_no") Long student_no);
+
+    public List<data.Student> getStudentInformationByClassNo(@Param("class_no") Long class_no);
 }
